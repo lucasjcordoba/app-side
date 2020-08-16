@@ -4,5 +4,5 @@ let registerController = require('../controllers/registerController')
 
 
 router.get('/',registerController.register);
-
+router.post('/',registerController.newUser);
 module.exports = router;
