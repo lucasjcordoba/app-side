@@ -8,30 +8,38 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER(10)
       },
-      user_id : {
+      user_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
           model: {
             tableName: 'Users'
-            },
-            key: 'id'
-          }
-    },
-      application_id : {
-      type: Sequelize.INTEGER,
-      allowNull: true,
-      references: {
-        model: {
-          tableName: 'Applications'
           },
           key: 'id'
         }
-  },
+      },
+      application_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: {
+            tableName: 'Applications'
+          },
+          key: 'id'
+        }
+      },
       price: {
-       type: Sequelize.DECIMAL(10,2),
-    allowNull: false
-  },
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false
+      },
+      rating: {
+        type: Sequelize.INTEGER(10),
+        allowNull: false
+      },
+      comment: {
+        type: Sequelize.STRING(1000),
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

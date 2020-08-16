@@ -5,3 +5,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+@media (min-width: 425px){
+  .navbar-toggler {
+      display: none;
+  }
+  
+}
+
+@media (max-width: 425px){
+  .nav-list {
+      display: none;
+  }
+  
+}

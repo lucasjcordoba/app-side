@@ -1,50 +1,49 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Applications', {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('Applications', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER(10)
+        type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING(100),
-        allowNull:false
-      },
-      image_url: {
-        type: Sequelize.STRING(100),
-        allowNull: false
-      },
-      description: {
         type: Sequelize.STRING(500),
         allowNull: false
       },
-      user_id : {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: {
-            tableName: 'Users'
-            },
-            key: 'id'
-          }
-    },
-    category_id: {
-      type: Sequelize.INTEGER,
-      allowNull: true,
-      references: {
-        model: {
-          tableName: 'Categories'
+      description: {
+          type: Sequelize.STRING(1000),
+          allowNull: false
+      },
+      image_url: {
+          type: Sequelize.STRING(500),
+          allowNull: false
+      },
+      price: {
+          type: Sequelize.DECIMAL(10,2),
+          allowNull: false
+      },
+      category_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: {
+              tableName: 'Categories'
+              },
+              key: 'id'
+            }
           },
-          key: 'id'
-        }
-  },
-    price: {
-      type: Sequelize.DECIMAL(10,2),
-      allowNull: false
-    },
-
+      user_id : {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: {
+              tableName: 'Users'
+              },
+              key: 'id'
+            }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -55,7 +54,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Applications');
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('Applications');
   }
 };
