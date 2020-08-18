@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Head -->
-  <%- include('partials/head', {title: title}); %>
-  <!-- Fin Head -->
+<!-- Head -->
+<%- include('partials/head'); %>
+<!-- Fin Head -->
 
-  <body>
-    
+<body>
+  
 
     <h1>Register</h1>
 
-    <form action="/" method="POST">
+    <form action="/register" method="POST">
       <div class="form-group">
         <label for="email">Email address</label>
         <input type="email" name="email" class="form-control" aria-describedby="emailHelp">
@@ -25,5 +25,6 @@
     <!--Scripts-->
     <%- include('partials/scripts') %>
     <!--Fin Scripts-->
-  </body>
+</body>
+
 </html>
