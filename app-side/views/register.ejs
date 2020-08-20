@@ -9,9 +9,9 @@
 
   <p style="color: red"> ERROR</p>
       <ul>
-    <% for (let i = 0; i = errors.length; i++){ %>
+    <% for (let i = 0; i < errors.length; i++){ %>
       <li>
-        <%=errors[i]%>
+        <%=errors[i].msg%>
       </li>
 
         <% } %>
