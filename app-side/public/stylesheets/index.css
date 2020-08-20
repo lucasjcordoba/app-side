@@ -6,17 +6,10 @@ a {
   color: #00B7FF;
 }
 
-
-@media (min-width: 425px){
-  .navbar-toggler {
-      display: none;
-  }
-  
+.mp0 {
+  margin:0 ;
+  padding:0
 }
 
-@media (max-width: 425px){
-  .nav-list {
-      display: none;
-  }
-  
+.search{
 }

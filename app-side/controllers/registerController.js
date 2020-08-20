@@ -1,5 +1,6 @@
 let db = require('../database/models')
 let {check, validationResult, body} = require('express-validator');
+let bcrypt = require('bcrypt')
 
 let registerController = {
     register: function(req, res){
@@ -10,7 +11,7 @@ let registerController = {
         if (errors.isEmpty()) {
             db.User.create({
             email: req.body.email,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
             })
     } else {
         return res.render('register', {errors: errors.errors})
