@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- Head -->
-  <%- include('partials/head', {title: title}); %>
+  <%- include('partials/head'); %>
   <!-- Fin Head -->
 
   <body>
     
 
-    <h1>Detail</h1>
+    <h1><%= applications.name %> </h1>
+    
+    <ul>
+      <li>
+          Image: <%= applications.image_url %> 
+
+      </li>
+      <li>
+          Description: <%= applications.description %> 
+          
+      </li>
+      <li>
+          Price: <%= applications.price %> 
+          
+      </li>
+      <li>
+          Category: <%= applications.category.name %> 
+          
+      </li>
+      <li>
+          User: <%= applications.user.id %> 
+          
+      </li>
+    </ul>
+
+      
 
 
 

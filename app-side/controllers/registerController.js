@@ -13,10 +13,20 @@ let registerController = {
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
             })
+            .then((created) => {
+                let createdJSON = {
+                    meta: {
+                        status: 201
+                    },
+                    data: created
+                }
+                res.json(createdJSON)
+            })
     } else {
         return res.render('register', {errors: errors.errors})
     }
     }
+   
 }
 
 module.exports = registerController
