@@ -5,31 +5,39 @@
   <!-- Fin Head -->
 
   <body>
-    <h1>New App</h1>
-    <form action="/apps" method="POST">
+    <h1>Edit App</h1>
+    <form action="/apps/edit/<%= application.id %> " method="POST">
     <div>
       <label for="name">Name</label>
-      <input type="text" name="name">
+      <input type="text" name="name" value="<%= application.name %> ">
     </div>
     <div>
       <div>
         <label for="image">Imagen</label>
-        <input type="text" name="image_url">
+        <input type="text" name="image_url" value="<%= application.image_url %> ">
       </div>
       <label for="description">Description</label>
-      <input type="text" name="description">
+      <input type="text" name="description" value="<%= application.description %> ">
     </div>
     <div>
       <label for="price">Price</label>
-      <input type="number" name="price">
+      <input type="number" name="price" value="<%= application.price %> ">
     </div>
     <div>
       <label for="category">Category</label>
       <select name="category_id">
         <% for (let i = 0; i < categories.length; i++){ %>
-        <option value="<%=categories[i].id%>" >
-          <%=categories[i].name%>
-        </option>
+            <% if (categories[i].id == applicarion.category_id) { %>
+                <option value="<%=categories[i].id%>" selected >
+                    <%=categories[i].name%>
+                  </option>
+            <% } else { %> 
+                <option value="<%=categories[i].id%>" >
+                    <%=categories[i].name%>
+                  </option>
+
+            <% } %> 
+        
         <% } %>
       
       </select>
@@ -43,7 +51,7 @@
       <br>
 
       <button type="submit">
-        Create App
+        Edit App
       </button>
     
   </form>

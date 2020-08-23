@@ -22,9 +22,7 @@ let appsController = {
             return res.render('newApp', {categories:categories},)
         }
         )
-    }
-    
-    ,
+    },
     create: function(req, res){
         db.Application.create({
             name: req.body.name,
@@ -35,6 +33,14 @@ let appsController = {
             user_id: req.body.user_id
         })
         
+    },
+    edit : function(req, res){
+        let app = db.Application.findByPk(req.params.id)
+        let category = db.Category.findAll()
+        Promise.all([app, category])
+            .then(function(app, category){
+                res.render('edit', {app:app, category:category})
+            })
     }
 }
 

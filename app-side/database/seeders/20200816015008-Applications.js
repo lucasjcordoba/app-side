@@ -13,7 +13,7 @@ module.exports = {
       applications.push({
         name: faker.company.companyName(),
         description: faker.lorem.words(30),
-        image_url: faker.lorem.words(50),
+        image_url: faker.image.business(),
         price: faker.random.number(20000),
         category_id: faker.random.arrayElement(categories).id,
         user_id: faker.random.arrayElement(users).id,
