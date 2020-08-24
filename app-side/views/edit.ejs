@@ -27,7 +27,7 @@
       <label for="category">Category</label>
       <select name="category_id">
         <% for (let i = 0; i < categories.length; i++){ %>
-            <% if (categories[i].id == applicarion.category_id) { %>
+            <% if (categories[i].id == application.category_id) { %>
                 <option value="<%=categories[i].id%>" selected >
                     <%=categories[i].name%>
                   </option>

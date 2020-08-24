@@ -11,7 +11,6 @@ var registerRouter = require('./routes/register');
 var dashboardRouter = require('./routes/dashboard');
 var appsRouter = require('./routes/apps')
 
-
 var app = express();
 
 // view engine setup

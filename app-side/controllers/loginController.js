@@ -6,9 +6,7 @@ let loginController = {
         res.render('login', {title:'login'})
     },
     enter: function(req,res){
-        let users = db.User.finOne({
-            where: {email: req.body.email}
-        })
+        
         let errors = validationResult(req)
         if (errors.isEmpty()){
 

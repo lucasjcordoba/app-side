@@ -19,11 +19,23 @@ let appsController = {
     new: function(req, res){
         db.Category.findAll()
         .then(function(categories){
-            return res.render('newApp', {categories:categories})
+            let arrayCategories=[]
+            categories.forEach(element => {
+                
+                 cat={
+                     id: element.dataValues.id,
+                     name: element.dataValues.name
+                 }
+                 arrayCategories.push(cat)
+            });
+            console.log(arrayCategories)
+           
+            return res.render('newApp', {categories:arrayCategories})
+           
         }
         )
     },
-    create: function(req, res){
+    create: function(req, res, next){
         db.Application.create({
             name: req.body.name,
             image_url: req.body.image_url,
@@ -32,7 +44,18 @@ let appsController = {
             category_id: req.body.category_id,
             user_id: req.body.user_id
         })
-        
+        .then(function(created){
+            let createdJSON = {
+                meta: {
+                    status:201
+                },
+               
+            }
+            res.json(createdJSON)
+        })
+        .catch(function(){
+            res.send('Error')
+        })
     },
     edit : function(req, res){
         let app = db.Application.findByPk(req.params.id)
