@@ -11,15 +11,15 @@ let appsController = {
         db.Application.findByPk(req.params.id,{
             include:[{association: 'category'}, {association: 'user'}]
         })
-        .then(function(applications){
-            res.render('detail', {applications:applications})
+        .then(function(application){
+            res.render('detail', {application:application})
         })
         
     },
     new: function(req, res){
         db.Category.findAll()
         .then(function(categories){
-            return res.render('newApp', {categories:categories},)
+            return res.render('newApp', {categories:categories})
         }
         )
     },

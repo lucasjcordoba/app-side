@@ -1,6 +1,10 @@
+let db = require('../database/models')
 let indexController = {
     hola: function(req, res, next){
-        res.render('index', {title:'index'})
+        db.Application.findAll()
+        .then(function(application){
+            res.render('index', {application:application})
+        })
     }
 }
 
