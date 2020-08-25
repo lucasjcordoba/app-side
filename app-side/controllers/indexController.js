@@ -1,10 +1,13 @@
-let db = require('../database/models')
 let indexController = {
     hola: function(req, res, next){
-        db.Application.findAll()
-        .then(function(application){
-            res.render('index')
-    })
+        if (req.session.email){
+            res.render('admin', {title:'Admin'})
+        }
+        else{
+            res.render('index', {title:'index'})
+        }
+        
+    }
 }
-}
+
 module.exports = indexController

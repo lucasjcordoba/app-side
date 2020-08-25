@@ -6,10 +6,10 @@ let loginController = {
         res.render('login', {title:'login'})
     },
     enter: function(req,res){
-        
         let errors = validationResult(req)
         if (errors.isEmpty()){
-
+            req.session.email = req.body.email
+            res.redidrect('/')
         } else {
             return res.render('login', {errors:errors.errors})
         }
