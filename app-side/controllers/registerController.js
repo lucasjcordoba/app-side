@@ -8,18 +8,36 @@ let registerController = {
     },
     newUser:function(req, res){
         let errors = validationResult(req);
-        req.session.email=req.body.email
+
         
         if (errors.isEmpty()) {
             db.User.create({
-            email: req.session.email,
-            password: bcrypt.hashSync(req.body.password, 10),
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10)
+            ,
             })
-            res.redirect('/')
-    } else {
+            .then(function(e){
+                let createdJSON = {
+                    meta: {
+                        status: 201
+                    },
+                }
+                res.json(createdJSON)
+            })
+            .catch(function(){
+                res.send('Error')
+            })
+            
+            
+            
+            res.render('register')
+            
+    } 
+    else {
         return res.render('register', {errors: errors.errors})
     }
-    }
+    
+}
 }
 
 module.exports = registerController

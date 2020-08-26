@@ -15,6 +15,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING(500),
       allowNull: false
     },
+    admin: {
+      type: Sequelize.BOOLEAN(),
+      allowNull:false
+    }
   }, {
     tablename: 'Users',
     timestamps: true

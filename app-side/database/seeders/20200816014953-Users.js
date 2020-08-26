@@ -9,6 +9,7 @@ module.exports = {
       users.push({
         email: faker.internet.exampleEmail(),
         password: faker.internet.password(8),
+        admin: faker.random.boolean(),
         createdAt: faker.date.past(),
         updatedAt: faker.date.recent()
       });

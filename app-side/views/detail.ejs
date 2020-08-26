@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- Head -->
-  <%- include('partials/head', {title: title}); %>
+  <%- include('partials/head'); %>
   <!-- Fin Head -->
 
   <body>
@@ -9,6 +9,30 @@
 
     <h1>Detail</h1>
 
+    <h1><%= application.name %> </h1>
+
+    <ul>
+      <li>
+          Image: <img src="<%= application.image_url %> " alt="">
+
+      </li>
+      <li>
+          Description: <%= application.description %> 
+
+      </li>
+      <li>
+          Price: <%= application.price %> 
+
+      </li>
+      <li>
+          Category: <%= application.category.name %> 
+
+      </li>
+      <li>
+          User: <%= application.user.id %> 
+
+      </li>
+    </ul>
 
 
 

@@ -51,7 +51,7 @@ let appsController = {
                 },
                
             }
-            res.json(createdJSON)
+            res.send(createdJSON)
         })
         .catch(function(){
             res.send('Error')
