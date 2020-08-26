@@ -9,20 +9,22 @@ let registerController = {
     newUser:function(req, res){
         let errors = validationResult(req);
 
+        req.body.email = req.body.email
+
         
         if (errors.isEmpty()) {
             db.User.create({
-            email: req.body.email,
+            email: req.session.email,
             password: bcrypt.hashSync(req.body.password, 10)
             ,
             })
             .then(function(e){
-                let createdJSON = {
+                let productJSON = {
                     meta: {
                         status: 201
                     },
                 }
-                res.json(createdJSON)
+                res.json(productJSON)
             })
             .catch(function(){
                 res.send('Error')

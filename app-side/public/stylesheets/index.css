@@ -3,7 +3,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: black;
 }
 
 .mp0 {
@@ -11,5 +11,42 @@ a {
   padding:0
 }
 
-.search{
+.list-group-item {
+  background-color: lightseagreen
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 552px){
+  .p2, .p3 {
+      display: none;
+  }
+  .cards-group {
+    align-items: center;
+  }
+  
+}
+@media (max-width: 768px){
+  .p3 {
+      display: none;
+  }
+}
+
+@media (max-width: 1024px){
+  .p4 {
+      display: none;
+  }
+}
+
+@media (max-width: 425px){
+  .btn-access, .btn-search {
+      display: none;
+  }
 }
