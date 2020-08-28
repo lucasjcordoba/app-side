@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Head -->
-<%- include('partials/head', {title: title}); %>
+<%- include('partials/head'); %>
 <!-- Fin Head -->
 
 <body>
@@ -48,7 +48,7 @@
       <div class="nav flex-column nav-pills sticky-top" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
           aria-controls="v-pills-home" aria-selected="true">Home</a>
-        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="apps/create" role="tab"
           aria-controls="v-pills-profile" aria-selected="false">New App</a>
         <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="/apps/create" role="tab"
           aria-controls="v-pills-messages" aria-selected="false">Apps</a>
@@ -73,10 +73,12 @@
 
   <div class="apps container-fluid">
 
+    
+
 
     <div class="cards-group shadow-lg p-3 mb-5 bg-white rounded">
       <h1>Apps</h1>
-      <%- include('partials/cards',) %>
+      <%- include('partials/cards') %>
     </div>
 
     
@@ -97,7 +99,7 @@
 
   
 
-
+<%- include('partials/footer') %>
 
 
 

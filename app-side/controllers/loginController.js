@@ -9,7 +9,7 @@ let loginController = {
         let errors = validationResult(req)
         if (errors.isEmpty()){
             req.session.email = req.body.email
-            res.redidrect('/')
+            res.redirect('/')
         } else {
             return res.render('login', {errors:errors.errors})
         }
