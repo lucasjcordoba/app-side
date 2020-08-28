@@ -14,9 +14,9 @@ let registerController = {
         
         if (errors.isEmpty()) {
             db.User.create({
-            email: req.session.email,
+            email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
-            admin: req.body.admin
+            admin: [this.email == 'admin@appside.com' ? true : false]
             })
             .then(function(e){
                 let productJSON = {

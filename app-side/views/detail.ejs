@@ -12,12 +12,20 @@
     <h1>Detail</h1>
 
     <div class="container card mb-3 shadow-lg">
-      <img src="<%= application.image_url %> " class="card-img-top" alt="...">
+      <img src="<%= application.image_url %> " class="card-img-top">
       <div class="card-body">
         <h5 class="card-title"><%= application.name %></h5>
         <p class="card-text"><%= application.description %> </p>
         <p class="card-text"><small class="text-muted">$<%= application.price %> </small></p>
         <p class="card-text">Category: <small class="text-muted"><%= application.category.name %>  </small></p>
+     
+        <a href="/apps/edit/<%= application.id %> ">
+        <button>Edit</button></a>
+        
+        <form action="/apps/delete/<%= application.id %> " method="POST">
+        <button type="submit">Delete</button>
+        </form>
+     
       </div>
     </div>
     

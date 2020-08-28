@@ -42,6 +42,8 @@ let appsController = {
             )
     },
     create: function (req, res, next) {
+       
+        console.log(req.body)
         db.Application.create({
             name: req.body.name,
             image_url: req.body.image_url,
@@ -57,10 +59,10 @@ let appsController = {
                     },
 
                 }
-                res.send(createdJSON)
+                res.render(createdJSON)
             })
             .catch(function () {
-                res.send('Error')
+                res.redirect('/apps')
             })
     },
     editForm: function (req, res){
@@ -109,12 +111,21 @@ let appsController = {
                  status: 201
              },
          }
-         res.json(editedJSON)
+         res.redirect('/apps/detail/'+ req.params.id)
      })
      .catch(function () {
          res.send('Error')
  
      })
+     },
+     delete: function(req, res){
+         db.Application.destroy({
+             where: {
+                 id: req.params.id
+             }
+         })
+         
+         res.redirect('/apps')
      }
 }
 

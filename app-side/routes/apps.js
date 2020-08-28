@@ -21,6 +21,6 @@ router.get('/edit/:id', appsController.editForm);
 router.put('/edit/:id', appsController.edit)
 router.get('/create', appsController.new);
 router.post('/create', appsController.create)
-
+router.post('/delete/:id', appsController.delete)
 
 module.exports = router;

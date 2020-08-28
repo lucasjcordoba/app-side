@@ -8,11 +8,11 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER(10)
     },
     name: {
-      type: Sequelize.STRING(100),
+      type: Sequelize.STRING(500),
       allowNull:false
     },
     image_url: {
-      type: Sequelize.STRING(500),
+      type: Sequelize.STRING(1000),
       allowNull: false
     },
     description: {
