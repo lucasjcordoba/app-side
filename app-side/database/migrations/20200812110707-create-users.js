@@ -18,7 +18,7 @@ module.exports = {
       },
       admin: {
         type: Sequelize.BOOLEAN(false),
-        allowNull:false
+        allowNull:true
       },
       createdAt: {
         allowNull: false,

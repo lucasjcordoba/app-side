@@ -29,7 +29,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     user_id: {
       type: Sequelize.INTEGER(10),
-      allowNull: false
+      allowNull: true
     }
   }, {
     tablename: 'Applications',

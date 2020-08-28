@@ -10,6 +10,10 @@ module.exports = (sequelize, Sequelize) => {
     name: {
       type: Sequelize.STRING(100)
     },
+    img: {
+      type: Sequelize.STRING(500),
+      allowNull: false
+    },
   }, {
     tablename: 'Categories',
     timestamps: true

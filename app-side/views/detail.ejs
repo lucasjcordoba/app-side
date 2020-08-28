@@ -5,36 +5,26 @@
   <!-- Fin Head -->
 
   <body>
-    
+
+
+    <%- include('partials/navbar') %> 
 
     <h1>Detail</h1>
 
-    <h1><%= application.name %> </h1>
+    <div class="container card mb-3 shadow-lg">
+      <img src="<%= application.image_url %> " class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= application.name %></h5>
+        <p class="card-text"><%= application.description %> </p>
+        <p class="card-text"><small class="text-muted">$<%= application.price %> </small></p>
+        <p class="card-text">Category: <small class="text-muted"><%= application.category.name %>  </small></p>
+      </div>
+    </div>
+    
 
-    <ul>
-      <li>
-          Image: <img src="<%= application.image_url %> " alt="">
+    
 
-      </li>
-      <li>
-          Description: <%= application.description %> 
-
-      </li>
-      <li>
-          Price: <%= application.price %> 
-
-      </li>
-      <li>
-          Category: <%= application.category.name %> 
-
-      </li>
-      <li>
-          User: <%= application.user.id %> 
-
-      </li>
-    </ul>
-
-
+    
 
     <!--Scripts-->
     <%- include('partials/scripts') %>

@@ -20,15 +20,19 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     },
     price: {
-      type: Sequelize.DECIMAL(10,2),
-   allowNull: false
- },
+      type: Sequelize.DECIMAL(10, 2),
+      allowNull: false
+    },
+    comment: {
+      type: Sequelize.STRING(1000),
+      allowNull: false
+    },
   }, {
     tablename: 'Orders',
     timestamps: true
   });
 
-  Order.associate = function(models) {
+  Order.associate = function (models) {
 
     Order.belongsTo(models.User, {
       as: 'user',
@@ -40,6 +44,6 @@ module.exports = (sequelize, Sequelize) => {
     });
 
   }
-  
+
   return Order;
 };

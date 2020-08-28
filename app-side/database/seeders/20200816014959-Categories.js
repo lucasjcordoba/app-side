@@ -8,6 +8,7 @@ module.exports = {
     for(let i = 0; i < 30; i++){
       categories.push({
         name: faker.name.firstName(),
+        img: faker.image.business(),
         createdAt: faker.date.past(),
         updatedAt: faker.date.recent()
       });

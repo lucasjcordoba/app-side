@@ -5,6 +5,8 @@
   <!-- Fin Head -->
 
   <body>
+
+    <%- include('partials/navbar') %> 
     <h1>Edit App</h1>
     <form action="/apps/edit/<%= application.id %>?_method=PUT " method="POST">
     <div>

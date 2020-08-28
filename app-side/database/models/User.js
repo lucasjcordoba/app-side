@@ -17,7 +17,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     admin: {
       type: Sequelize.BOOLEAN(),
-      allowNull:false
+      allowNull:true
     }
   }, {
     tablename: 'Users',
