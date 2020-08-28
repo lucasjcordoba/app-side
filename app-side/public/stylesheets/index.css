@@ -1,5 +1,5 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 }
 
 a {
@@ -11,9 +11,8 @@ a {
   padding:0
 }
 
-.list-group-item {
-  background-color: lightseagreen
-}
+
+
 
 
 

@@ -16,8 +16,8 @@ var storage = multer.diskStorage({
   var upload = multer({ storage: storage })
 
 router.get('/', appsController.list) 
-router.get('/detail/:id', appsController.detail);
-router.post('/edit/:id', appsController.edit)
+router.get('/edit/:id', appsController.editForm);
+router.put('/edit/:id', appsController.edit)
 router.get('/create', appsController.new);
 router.post('/create', appsController.create)
 

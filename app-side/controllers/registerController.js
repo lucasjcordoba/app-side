@@ -4,19 +4,19 @@ let bcrypt = require('bcrypt')
 
 let registerController = {
     register: function(req, res){
-        res.render('register', {title:'register'})
+        res.render('register')
     },
     newUser:function(req, res){
         let errors = validationResult(req);
 
-        req.body.email = req.body.email
+        req.session.email = req.body.email
 
         
         if (errors.isEmpty()) {
             db.User.create({
             email: req.session.email,
-            password: bcrypt.hashSync(req.body.password, 10)
-            ,
+            password: bcrypt.hashSync(req.body.password, 10),
+            admin: req.body.admin
             })
             .then(function(e){
                 let productJSON = {

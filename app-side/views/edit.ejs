@@ -6,7 +6,7 @@
 
   <body>
     <h1>Edit App</h1>
-    <form action="/apps/edit/<%= application.id %> " method="POST">
+    <form action="/apps/edit/<%= application.id %>?_method=PUT " method="POST">
     <div>
       <label for="name">Name</label>
       <input type="text" name="name" value="<%= application.name %> ">
@@ -21,7 +21,7 @@
     </div>
     <div>
       <label for="price">Price</label>
-      <input type="number" name="price" value="<%= application.price %> ">
+      <input type="number" name="price" value="<%= application.price %> " placeholder="<%= application.price %> ">
     </div>
     <div>
       <label for="category">Category</label>

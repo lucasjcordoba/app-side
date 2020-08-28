@@ -10,6 +10,7 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var dashboardRouter = require('./routes/dashboard');
 var appsRouter = require('./routes/apps')
+var methodOverride = require('method-override')
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+app.use(methodOverride('_method'))
 
 
 app.use('/', indexRouter);

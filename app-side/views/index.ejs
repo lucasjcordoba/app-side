@@ -11,33 +11,32 @@
 
 
 
-      <div class="row col-3 mp0">
+      <div class="row col-1 mp0 d-flex">
         <a class="navbar-brand" href="#">App Side
         </a>
       </div>
 
-      <div class="row col-7 mp0">
+      
+      
+
+      <div class="row mp0">
         <form class="form-inline">
           <input class="search form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn-search btn btn-outline-warning my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
         </form>
       </div>
 
-      <div>
-      <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-        aria-controls="collapseExample">
+      <div class="dropdown">
+        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         </i><button type="button" class="btn-access btn btn-danger"><i class="fas fa-power-off"></i></button>
-      </a>
-    </nav>
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-        <div class="access">
-          <a href="/register">Register</a>
+        </a>
+      
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a href="/register">Register</a><br>
           <a href="/login">Login</a>
         </div>
       </div>
-    </div>
-    </div>
+      </nav>
 
   </div>
 
@@ -50,11 +49,11 @@
         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
           aria-controls="v-pills-home" aria-selected="true">Home</a>
         <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-          aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-          aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-          aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+          aria-controls="v-pills-profile" aria-selected="false">New App</a>
+        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="/apps/create" role="tab"
+          aria-controls="v-pills-messages" aria-selected="false">Apps</a>
+        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="/apps" role="tab"
+          aria-controls="v-pills-settings" aria-selected="false">Users</a>
       </div>
     </div>
     <div class="col-9">
@@ -82,12 +81,12 @@
 
     
     <div class="cards-group shadow-lg p-3 mb-5 bg-white rounded">
-      <h1>List</h1>
+      <h1>Categories</h1>
       <%- include('partials/cards') %>
     </div>
 
     <div class="cards-group shadow-lg p-3 mb-5 bg-white rounded">
-      <h1>App</h1>
+      <h1>Best Rank</h1>
       <%- include('partials/cards') %>
     </div>
 
