@@ -1,32 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Head -->
-  <%- include('partials/head'); %>
-  <!-- Fin Head -->
+<!-- Head -->
+<%- include('partials/head'); %>
+<link rel="stylesheet" href="/stylesheets/index.css" class="css" />
 
-  <body>
-    
+</head>
+<!-- Fin Head -->
 
-    <%- include('partials/navbar') %> 
+<body>
 
-    <h1>Apps List</h1>
-    
-
-    <ul>
-        <% for (let i = 0; i < application.length; i++) {%>
-        <li>
-          <a href="/apps/detail/<%= application[i].id %> ">
-          <%= application[i].name %> 
-        </a>
-        </li>
-        <% } %> 
-    </ul>
+  <!-- Nav Bar -->
+  
+  <%- include('partials/navbar') %> 
 
 
+  <!-- Nav Lateral -->
+
+  <div class="d-flex container-fluid">
+
+    <div class="nav-lat row">
+      <nav class="nav flex-column">
+        <a class="nav-link active" href="#">Active</a>
+        <a class="nav-link" href="/apps/create">New App</a>
+        <a class="nav-link" href="Apps">Apps</a>
+      </nav>
+
+    </div>
+      <!-- App -->
+
+    <div class="apps container-fluid">
 
 
-    <!--Scripts-->
-    <%- include('partials/scripts') %>
-    <!--Fin Scripts-->
-  </body>
+      
+
+      <div class="cards-group shadow-lg p-3 mb-5 bg-white rounded ">
+        <h1>Apps</h1>
+        <%- include('partials/appsList') %>
+      </div>
+
+
+      
+
+
+
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+  <%- include('partials/footer') %>
+
+
+
+
+
+
+  <!--Scripts-->
+  <%- include('partials/scripts') %>
+  
+</body>
+
 </html>

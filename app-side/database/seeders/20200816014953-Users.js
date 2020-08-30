@@ -1,5 +1,6 @@
 'use strict';
 let faker = require('faker');
+var bcrypt = require('bcrypt');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -8,7 +9,7 @@ module.exports = {
     for(let i = 0; i < 30; i++){
       users.push({
         email: faker.internet.exampleEmail(),
-        password: faker.internet.password(8),
+        password: bcrypt.hashSync('12345678', 10),
         admin: faker.random.boolean(),
         createdAt: faker.date.past(),
         updatedAt: faker.date.recent()
@@ -18,12 +19,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };
