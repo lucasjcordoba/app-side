@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-let dasboardController = require('../controllers/dashboardController')
+let dashboardController = require('../controllers/dashboardController');
+let checkAdmin= require('../middlewares/checkAdmin')
 
 
-router.get('/', dasboardController.list) 
+router.get('/', checkAdmin, dashboardController.list) 
 
 module.exports = router;

@@ -2,9 +2,6 @@
 <html lang="en">
   <!-- Head -->
   <%- include('partials/head'); %>
-  <link rel="stylesheet" href="/stylesheets/index.css" class="css" />
-
-</head>
   <!-- Fin Head -->
 
   <body>
@@ -29,9 +26,9 @@
          <a href="/"><h1>App Side</h1></a>
           <p class="h3 mb-3 font-weight-normal">Please sign in</p>
           <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+          <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
           <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+          <input type="password" name= "password" id="password" class="form-control" placeholder="Password" required="">
           <div class="checkbox mb-3">
             <label>
               <input type="checkbox" value="remember-me"> Remember me

@@ -11,19 +11,14 @@
 
     <%- include('partials/navbar') %> 
 
-    <h1>Apps List</h1>
+    <h1>Users List</h1>
     
-    <div class="cards-group shadow-lg p-3 mb-5 bg-white rounded containter">
-      <h1>Apps</h1>
-      <%- include('partials/appsList') %>
-    </div>
-
 
     <ul>
-        <% for (let i = 0; i < application.length; i++) {%>
+        <% for (let i = 0; i < users.length; i++) {%>
         <li>
-          <a href="/apps/detail/<%= application[i].id %> ">
-          <%= application[i].name %> 
+          <a href="/apps/detail/<%= users[i].id %> ">
+          <%= users[i].email %> 
         </a>
         </li>
         <% } %> 

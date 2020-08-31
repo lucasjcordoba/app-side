@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<%- include('partials/head'); %>
+<link rel="stylesheet" href="/stylesheets/index.css" class="css" />
+
+</head>
+    <main class="container">
+
+<section>
+        <div class="container mt-5 mb-5" >
+                <h2 style="font-size: 4em" >Results</h2>
+            </div>
+   
+
+        <div class="card-deck card-deck-index" style="justify-content: space-around">
+
+                <% prductsSearch.forEach(application=> { %>
+                    <a href="/applications/<%=application.id%>">
+                <div class="card" >
+                  <img src="../images/applicationos/<%=application.image1%>" class="card-img-top" alt="...">
+
+                  <div class="card-body">
+                    <div><h2>$<%=application.price%></h2> </div>
+            
+                    <h4 class="card-title"><%=application.name%> <span></span></h4>
+                    
+                   
+                  </div>
+
+                </div>
+            </a>
+                <% }) %>  
+        </div>
+</section>
+
+
+        <!-- <div class="row">
+            <% prductsSearch.forEach(application=> { %>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <section class="application-box">
+                        <a href="/applications/<%=application.id%>">
+                            <figure class="application-box_image">
+                                <img src="../images/applicationos/class="center-cropped" alt="imagen de applicationo">
+                            </figure>
+                            <article class="application-box_data">
+                                <div class="precio-oferta">
+                                </div>
+                                <p><%=application.name%><span
+                            </article>
+                        </a>
+                    </section>
+                </div>
+            <% }) %>
+        </div> -->
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

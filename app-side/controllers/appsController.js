@@ -42,11 +42,9 @@ let appsController = {
             )
     },
     create: function (req, res, next) {
-       
-        console.log(req.body)
         db.Application.create({
             name: req.body.name,
-            image_url: req.body.image_url,
+            image_url: 'not-image.jpeg',
             description: req.body.description,
             price: req.body.price,
             category_id: req.body.category_id,
@@ -118,6 +116,19 @@ let appsController = {
  
      })
      },
+     search: (req, res) => {
+        db.Products.findAll({
+            where: {
+                name:{[db.Sequelize.Op.like]:`%`+req.query.search+`%`}
+            },
+            include: [{association: `brands`}, {association: `discounts`}, {association: `categories`}],
+            order: [[`name`, `ASC`]]
+        })
+        .then((prductsSearch) => {
+            res.render(`productosBuscados`, {prductsSearch:prductsSearch})
+            
+        })
+    },
      delete: function(req, res){
          db.Application.destroy({
              where: {
@@ -126,6 +137,9 @@ let appsController = {
          })
          
          res.redirect('/apps')
+     },
+     loadImage: function(req,res){
+         
      }
 }
 
