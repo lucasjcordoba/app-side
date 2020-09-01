@@ -57,10 +57,10 @@ let appsController = {
                     },
 
                 }
-                res.redirect(`/apps/loadImage/${req.params.id}`)
+                res.redirect(`/apps/loadImage/${created.dataValues.id}`)
             })
             .catch(function () {
-                res.redirect('Error')
+                res.redirect(`/apps/loadImage/${created.dataValues.id}`)
             })
     },
     editForm: function (req, res){
