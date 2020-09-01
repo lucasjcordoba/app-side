@@ -1,70 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Head -->
-  <%- include('partials/head') %>
-  <link rel="stylesheet" href="/stylesheets/index.css" class="css" />
+<!-- Head -->
+<%- include('partials/head') %>
+<link rel="stylesheet" href="/stylesheets/index.css" class="css" />
 
 </head>
-  <!-- Fin Head -->
+<!-- Fin Head -->
 
-  <body>
+<body>
 
-    <%- include('partials/navbar') %> 
-    <h1>Edit App</h1>
-    <form action="/apps/loadImage/<%= application.id %>?_method=PUT " method="POST">
-    <div>
-      <label for="name">Name</label>
-      <input type="text" name="name" value="<%= application.name %> ">
-    </div>
-    <div>
-      <div>
-        <label for="image">Imagen</label>
-        <input type="text" name="image_url" value="/image/<%= application.image_url %> ">
-      </div>
-      <label for="description">Description</label>
-      <input type="text" name="description" value="<%= application.description %> ">
-    </div>
-    <div>
-      <label for="price">Price</label>
-      <input type="number" name="price" value="<%= application.price %> " placeholder="<%= application.price %> ">
-    </div>
-    <div>
-      <label for="category">Category</label>
-      <select name="category_id">
-        <% for (let i = 0; i < categories.length; i++){ %>
-            <% if (categories[i].id == application.category_id) { %>
-                <option value="<%=categories[i].id%>" selected >
-                    <%=categories[i].name%>
-                  </option>
-            <% } else { %> 
-                <option value="<%=categories[i].id%>" >
-                    <%=categories[i].name%>
-                  </option>
+  <%- include('partials/navbar') %>
+  <h1>Load Image</h1>
 
-            <% } %> 
-        
-        <% } %>
-      
-      </select>
-    </div>
-    
-    <div>
-  
-      <br>
 
-      <button type="submit">
-        Edit App
-      </button>
-    
+  <form action="/apps/loadImage/<%= application.id %> " method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exampleFormControlFile1"></label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image_url">
+    </div>
+    <button type="submit"> Load </button>
   </form>
-    
 
 
 
 
+  <!--Scripts-->
+  <%- include('partials/scripts') %>
+  <!--Fin Scripts-->
+</body>
 
-    <!--Scripts-->
-    <%- include('partials/scripts') %>
-    <!--Fin Scripts-->
-  </body>
 </html>

@@ -57,10 +57,10 @@ let appsController = {
                     },
 
                 }
-                res.render(createdJSON)
+                res.redirect(`/apps/loadImage/${req.params.id}`)
             })
             .catch(function () {
-                res.redirect('/apps')
+                res.redirect('Error')
             })
     },
     editForm: function (req, res){
@@ -116,19 +116,6 @@ let appsController = {
  
      })
      },
-     search: (req, res) => {
-        db.Products.findAll({
-            where: {
-                name:{[db.Sequelize.Op.like]:`%`+req.query.search+`%`}
-            },
-            include: [{association: `brands`}, {association: `discounts`}, {association: `categories`}],
-            order: [[`name`, `ASC`]]
-        })
-        .then((prductsSearch) => {
-            res.render(`productosBuscados`, {prductsSearch:prductsSearch})
-            
-        })
-    },
      delete: function(req, res){
          db.Application.destroy({
              where: {
@@ -138,9 +125,53 @@ let appsController = {
          
          res.redirect('/apps')
      },
-     loadImage: function(req,res){
-         
-     }
+     editImage: function(req, res){
+        db.Application.findOne({
+            where:{id:req.params.id}
+        }
+        )
+        .then(function (application) {
+            res.render('loadImage', { application: application })
+            console.log(application);
+        })
+    
+        .catch(function(){
+            res.send('Error')
+        })
+       
+     },
+     loadImage: (req, res) => {
+
+
+        if (req.params.id == undefined) {
+            res.render('Error Product')
+        }
+
+        db.Application.update({
+
+                image_url: req.files[0].filename
+
+            }, {
+                where: {
+                   id: req.params.id
+                }
+            }
+
+        ).then((resultado) => {
+
+            db.Application.findOne({
+                where: {
+                    id: req.params.id
+
+                }
+            }).then((resultado) => {
+                req.params.id = resultado.dataValues;
+            })
+
+
+            res.redirect('/apps/detail/' + req.params.id)
+        })
+    },
 }
 
 module.exports = appsController

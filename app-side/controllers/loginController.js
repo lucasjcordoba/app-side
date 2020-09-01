@@ -36,6 +36,12 @@ let loginController = {
                     }
                     req.session.usuarioLogeado = perfil;
 
+                    if(req.body.remember != 'undefined'){
+                        res.cookie('remember', perfil.email, {
+                            maxAge: 600000
+                        })
+                    }
+
                     if(req.session.usuarioLogeado.admin==true){
                         res.redirect('/')
                     }else {
