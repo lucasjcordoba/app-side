@@ -11,7 +11,7 @@ module.exports = {
     for(let i = 0; i < 30; i++){
       comments.push({
         rating:faker.random.number(10),
-        comment: faker.lorem.words(50),
+        content: faker.lorem.words(50),
         order_id: faker.random.arrayElement(orders).id,
         createdAt: faker.date.past(),
         updatedAt: faker.date.recent()

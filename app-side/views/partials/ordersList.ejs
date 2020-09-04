@@ -1,0 +1,27 @@
+
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            <% for (let i = 0; i < order.length; i++) {%>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                <img class=" card-img-top" width="100%" height="225" src="<%= order[i].applications.image_url %> " alt="">
+                <p><%= order[i].applications.name %> </p>    
+                <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="/apps/edit/<%= order[i].id %> "><button type="button"
+                                        class="btn btn-sm btn-outline-secondary">Edit</button></a>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>

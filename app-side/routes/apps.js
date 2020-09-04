@@ -18,7 +18,7 @@ var storage = multer.diskStorage({
 
 router.get('/', appsController.list) 
 router.get('/detail/:id', appsController.detail) 
-router.get('/edit/:id', appsController.editForm);
+router.get('/edit/:id', checkAdmin, appsController.editForm);
 router.put('/edit/:id', appsController.edit)
 router.get('/create', checkAdmin,appsController.new);
 router.post('/create', appsController.create)

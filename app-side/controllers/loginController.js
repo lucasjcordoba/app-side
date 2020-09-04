@@ -36,7 +36,9 @@ let loginController = {
                     }
                     req.session.userLog = perfil;
 
+                    console.log(perfil);
 
+                    
                     if(req.session.userLog.admin==true){
                         res.redirect('/')
                     }else {
@@ -50,16 +52,25 @@ let loginController = {
         } else {
             return res.render('login', {errors:errors.errors})
         }
+        if(req.body.remember != undefined){
+            res.cookie('remember', req.session.userLog, {
+                maxAge: 600000
+            })
+            console.log(res.cookie);
+        }
     },
    
 
-    check: (req, res)=>{
+    check: function (req, res){
         if (req.session.userLog) {
         res.send(req.session.userLog)
-        console.log(req.session.userLog);
     }else{
         res.send('no login')
     }
+    },
+    close: function(req, res){
+        req.session.destroy()
+        res.redirect('/')
     }
 }
 

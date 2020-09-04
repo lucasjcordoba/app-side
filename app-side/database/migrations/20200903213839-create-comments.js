@@ -19,10 +19,10 @@ module.exports = {
         }
       },
       rating: {
-        type: Sequelize.INTEGER(10),
+        type: Sequelize.INTEGER(5,2),
         allowNull: false
       },
-      comment: {
+      content: {
         type: Sequelize.STRING(1000),
         allowNull: false
       },

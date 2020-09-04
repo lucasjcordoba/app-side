@@ -9,7 +9,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     user_id: {
       type: Sequelize.INTEGER(10),
-      allowNull: false
+      allowNull: true
     },
     application_id: {
       type: Sequelize.INTEGER(10),
@@ -34,6 +34,10 @@ module.exports = (sequelize, Sequelize) => {
       as: 'applications',
       foreignKey: 'application_id'
     });
+    Order.hasMany(models.Comment, {
+      as: 'comments',
+      foreignKey: 'order_id'
+    })
 
   }
 

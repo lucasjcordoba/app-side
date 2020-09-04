@@ -3,6 +3,6 @@ var router = express.Router();
 let ordersController = require('../controllers/ordersController')
 
 
-router.get('/', ordersController.orders) 
+router.get('/', ordersController.list) 
 router.post('/add/:id', ordersController.add)
 module.exports = router;

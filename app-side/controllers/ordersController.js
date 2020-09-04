@@ -1,15 +1,7 @@
 let db = require('../database/models')
 
 let ordersController = {
-    orders: function (req, res) {
-        db.Application.findAll()
-            .then(function (application) {
-                res.render('orders', { application: application })
-            })
-            .catch(function(){
-                res.send('Error')
-            })
-    },
+    
     add: function(req, res){
      /*   db.Order.create({
             where: {
@@ -41,12 +33,23 @@ let ordersController = {
                     },
 
                 }
-                res.render('orders')
+                res.render(createdJSON)
             })
             .catch(function () {
-                res.send('error')
+                res.send(createdJSON)
             })
            })
+    },
+    list: function (req, res) {
+        db.Order.findAll({
+            include: [{ association: 'applications'},{ association: 'user' }]
+        })
+            .then(function (order) {
+                res.render('orders', { order: order })
+            })
+            .catch(function(){
+                res.send('Error')
+            })
     },
 }
    

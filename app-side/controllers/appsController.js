@@ -1,8 +1,11 @@
 let db = require('../database/models')
+const { application } = require('express')
 
 let appsController = {
     list: function (req, res) {
-        db.Application.findAll()
+        db.Application.findAll({
+            include: [{ association: 'category' }, { association: 'user' }]
+        })
             .then(function (application) {
                 res.render('apps', { application: application })
             })
