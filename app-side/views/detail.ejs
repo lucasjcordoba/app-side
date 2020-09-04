@@ -24,7 +24,11 @@
      
         <a href="/apps/edit/<%= application.id %> ">
         <button>Edit</button></a>
-        
+
+
+        <form action="/orders/add/<%= application.id %>" method="POST">
+          <button type="submit">Add to orders</button>
+        </form>
         <form action="/apps/delete/<%= application.id %> " method="POST">
         <button type="submit">Delete</button>
         </form>

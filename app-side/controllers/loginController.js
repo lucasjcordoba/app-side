@@ -34,15 +34,10 @@ let loginController = {
                         admin:resultado.dataValues.admin,
                         rol: profile ,
                     }
-                    req.session.usuarioLogeado = perfil;
+                    req.session.userLog = perfil;
 
-                    if(req.body.remember != 'undefined'){
-                        res.cookie('remember', perfil.email, {
-                            maxAge: 600000
-                        })
-                    }
 
-                    if(req.session.usuarioLogeado.admin==true){
+                    if(req.session.userLog.admin==true){
                         res.redirect('/')
                     }else {
                         res.redirect('/')
@@ -59,8 +54,9 @@ let loginController = {
    
 
     check: (req, res)=>{
-        if (req.session.usuarioLogeado) {
-        res.send(req.session.usuarioLogeado)
+        if (req.session.userLog) {
+        res.send(req.session.userLog)
+        console.log(req.session.userLog);
     }else{
         res.send('no login')
     }

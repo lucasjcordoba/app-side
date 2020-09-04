@@ -7,15 +7,15 @@
     <div class="container">
       <div>
         <div>
-          <div class="card p<%= [i] %>  mb-4 shadow-sm">
-            <img class=" card-img-top" width="100%" height="225" src="../images/<%= application.image_url %> " alt="">
+          <div class="card p<%= [i] %>  mb-4 shadow">
+            <img class=" card-img-top" width="100%" height="225" src="/images/not-image.jpeg " alt="">
             <div class="card-body">
               <p class="card-text"><%= application[i].name %></p>
               <p class="card-text"><%= application[i].price %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a href="/apps/detail/<%= application[i].id %>"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                  <a href="/apps/edit/<%= application[i].id %> "><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
                 </div>
               </div>
             </div>

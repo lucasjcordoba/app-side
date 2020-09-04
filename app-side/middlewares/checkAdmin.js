@@ -1,14 +1,15 @@
 const db= require('../database/models');
 
     function checkAdmin (req,res,next) {
-        if (req.session.usuarioLogeado==undefined){
+        db.Application.findAll()
+        if (req.session.userLog==undefined){
     
-            res.send('No tiene permisos de administrador');
+            res.render('notAdmin');
         } else {
     
             db.User.findOne({
                 where:{
-                 id: req.session.usuarioLogeado.id,
+                 id: req.session.userLog.id,
                 }
             })
             .then((resultado)=> { 
@@ -23,4 +24,6 @@ console.log(resultado.dataValues)
             })
         }
     };
+
+
     module.exports=checkAdmin;

@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
-var dashboardRouter = require('./routes/dashboard');
+var ordersRouter = require('./routes/orders');
 var appsRouter = require('./routes/apps')
 var methodOverride = require('method-override')
 
@@ -35,7 +35,7 @@ app.use(methodOverride('_method'))
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/dashboard', dashboardRouter);
+app.use('/orders', ordersRouter);
 app.use('/apps', appsRouter);
 app.use('/users', usersRouter);
 

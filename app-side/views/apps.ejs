@@ -2,6 +2,7 @@
 <html lang="en">
   <!-- Head -->
   <%- include('partials/head'); %>
+  <link rel="stylesheet" href="/stylesheets/index.css" class="css" />
 
 </head>
   <!-- Fin Head -->
@@ -14,20 +15,10 @@
     <h1>Apps List</h1>
     
     <div class="cards-group shadow-lg p-3 mb-5 bg-white rounded containter">
-      <h1>Apps</h1>
-      <%- include('partials/appsList') %>
+      <%- include('partials/appsListAdmin') %>
     </div>
 
 
-    <ul>
-        <% for (let i = 0; i < application.length; i++) {%>
-        <li>
-          <a href="/apps/detail/<%= application[i].id %> ">
-          <%= application[i].name %> 
-        </a>
-        </li>
-        <% } %> 
-    </ul>
 
 
 

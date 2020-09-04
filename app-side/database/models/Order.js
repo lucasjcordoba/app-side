@@ -11,20 +11,12 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER(10),
       allowNull: false
     },
-    rating: {
-      type: Sequelize.INTEGER(10),
-      allowNull: false
-    },
     application_id: {
       type: Sequelize.INTEGER(10),
       allowNull: false
     },
     price: {
       type: Sequelize.DECIMAL(10, 2),
-      allowNull: false
-    },
-    comment: {
-      type: Sequelize.STRING(1000),
       allowNull: false
     },
   }, {
