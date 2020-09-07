@@ -3,40 +3,27 @@ let db = require('../database/models')
 let ordersController = {
     
     add: function(req, res){
-     /*   db.Order.create({
-            where: {
-                application_id: req.params.id,
-                user_id:req.session.userLog,
-                price: this.application_id.price
-            }
-        })
-      
-     
-      
-        res.redirect('/orders')
-        */
-
-       db.Application.findOne ({
+        db.Application.findOne ({
            where : {id: req.params.id}})
            .then (app =>{
-               console.log(app)
+               console.log(req.params.id)
                db.Order.create({
                    application_id: req.params.id,
-                   user_id:req.session.id,
-                   price:app.price
+                   user_id:req.session.email,
+                   price:app.dataValues.price
                })
-               console.log(req.session)
-               .then(function (created) {
+               .then((created) =>{
+                   console.log(created);
                 let createdJSON = {
                     meta: {
                         status: 201
                     },
 
                 }
-                res.render(createdJSON)
+                 res.redirect('/orders')
             })
             .catch(function () {
-                res.send(createdJSON)
+                res.send('error')
             })
            })
     },
