@@ -8,7 +8,7 @@ module.exports = {
     const users = await queryInterface.sequelize.query('SELECT id FROM Users;', { type: Sequelize.QueryTypes.SELECT });
     var orders = [];
 
-    for(let i = 0; i < 30; i++){
+    for(let i = 0; i < 5; i++){
       orders.push({
         user_id: faker.random.arrayElement(users).id,
         application_id: faker.random.arrayElement(applications).id,
@@ -21,12 +21,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Orders', null, {});
   }
 };

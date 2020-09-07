@@ -9,7 +9,7 @@ module.exports = {
 
     var applications = [];
 
-    for(let i = 0; i < 30; i++){
+    for(let i = 0; i < 1; i++){
       applications.push({
         name: faker.company.companyName(),
         description: faker.lorem.words(30),
@@ -26,12 +26,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Applications', null, {});
   }
 };

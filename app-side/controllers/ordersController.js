@@ -51,7 +51,18 @@ let ordersController = {
                 res.send('Error')
             })
     },
-}
+    detailOrder: function(req, res){
+            db.Order.findByPk(req.params.id)
+                .then(function (order) {
+                    res.render('orderDetail', { order: order })
+                })
+                .catch(function(){
+                    res.send('Error')
+                })
+    
+        },
+    }
+
    
 
 

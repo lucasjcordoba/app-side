@@ -5,7 +5,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     let categories = [];
 
-    for(let i = 0; i < 30; i++){
+    for(let i = 0; i < 5; i++){
       categories.push({
         name: faker.name.firstName(),
         img: faker.image.business(),
@@ -17,12 +17,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Categories', null, {});
   }
 };

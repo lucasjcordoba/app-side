@@ -6,7 +6,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     let users = [];
 
-    for(let i = 0; i < 30; i++){
+    for(let i = 0; i < 2; i++){
       users.push({
         email: faker.internet.exampleEmail(),
         password: bcrypt.hashSync('12345678', 10),

@@ -8,7 +8,7 @@ module.exports = {
     
     var comments = [];
 
-    for(let i = 0; i < 30; i++){
+    for(let i = 0; i < 5; i++){
       comments.push({
         rating:faker.random.number(10),
         content: faker.lorem.words(50),
@@ -22,12 +22,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Comments', null, {});
   }
 };
