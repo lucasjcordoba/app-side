@@ -25,4 +25,7 @@ router.post('/create', appsController.create)
 router.post('/delete/:id', appsController.delete)
 router.get('/loadImage/:id', appsController.editImage);
 router.post('/loadImage/:id', upload.any(), appsController.loadImage);
+router.get('/search', appsController.search);
+router.post('/search', appsController.search);
+
 module.exports = router;

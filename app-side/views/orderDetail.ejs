@@ -15,7 +15,13 @@
   <h1>Detail</h1>
 
   <div class="container card mb-3 shadow-lg" style="width: 50rem;">
-    <img src="/images/<%= order.img %> " class="card-img-top mt-3">
+
+    <% if (order.applications.image_url == 'http://lorempixel.com/640/480/business') {%> 
+
+    <img src="<%= order.applications.image_url %> " class="card-img-top mt-3">
+    <% } else {%> 
+      <img src="/images/<%= order.applications.image_url %> " class="card-img-top mt-3">
+    <% } %> 
     <div class="card-body">
       <h5 class="card-title"><%= order.name %></h5>
       <p class="card-text"><small class="text-muted">$<%= order.price %> </small></p>

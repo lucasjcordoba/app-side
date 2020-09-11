@@ -27,6 +27,9 @@ a {
   .p2, .p3 {
       display: none;
   }
+  .navbar {
+    display: block;
+  }
   .cards-group {
     align-items: center;
   }
@@ -40,12 +43,6 @@ a {
 
 @media (max-width: 1024px){
   .p4 {
-      display: none;
-  }
-}
-
-@media (max-width: 425px){
-  .btn-access, .btn-search {
       display: none;
   }
 }

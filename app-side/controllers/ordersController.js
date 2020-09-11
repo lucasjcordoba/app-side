@@ -39,7 +39,9 @@ let ordersController = {
             })
     },
     detailOrder: function(req, res){
-            db.Order.findByPk(req.params.id)
+            db.Order.findByPk(req.params.id,{
+                include: [{ association: 'applications'}]
+            })
                 .then(function (order) {
                     res.render('orderDetail', { order: order })
                 })

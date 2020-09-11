@@ -92,7 +92,7 @@ let appsController = {
             )
         })
         .catch(function(){
-            res.send('Error')
+            res.redirect('/apps/detail/'+ req.params.id)
         })
     },
     edit : function(req, res){
@@ -116,7 +116,7 @@ let appsController = {
          res.redirect('/apps/detail/'+ req.params.id)
      })
      .catch(function () {
-         res.send('Error')
+        res.redirect('/apps/detail/'+ req.params.id)
  
      })
      },
@@ -176,6 +176,19 @@ let appsController = {
 
 
             res.redirect('/apps/detail/' + req.params.id)
+        })
+    },
+    search: (req, res) => {
+        db.Applications.findAll({
+            where: {
+                name:{[db.Sequelize.Op.like]:'%'+req.query.search+'%'}
+            },
+            include: [ {association: 'categories'}],
+            order: [['name', 'ASC']]
+        })
+        .then((prductsSearch) => {
+            res.render('search', {prductsSearch:prductsSearch})
+            
         })
     },
 }

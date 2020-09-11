@@ -4,52 +4,29 @@
 <%- include('partials/head'); %>
 <link rel="stylesheet" href="/stylesheets/index.css" class="css" />
 
-</head>
 <!-- Fin Head -->
 
-<body>
-  <% if (typeof errors != 'undefined') { %>
-
-  <p style="color: red"> ERROR</p>
-      <ul>
-    <% for (let i = 0; i < errors.length; i++){ %>
-      <li>
-        <%=errors[i].msg%>
-      </li>
-
-        <% } %>
-      </ul>
- 
-    <% } %>
-
-
-    <!DOCTYPE html>
-<html lang="en">
-<!-- Head -->
-<%- include('partials/head'); %>
-<link rel="stylesheet" href="/stylesheets/index.css" class="css" />
-
-<!-- Fin Head -->
-
-<body class="text-center" >
+<body class="text-center">
 
 
   <%- include('partials/navbar') %>
-  <% if (typeof errors != 'undefined') { %>
-
-  <p style="color: red"> ERROR</p>
-  <ul>
-    <% for (let i = 0; i < errors.length; i++){ %>
-    <li>
-      <%=errors[i].msg%>
-    </li>
-
-    <% } %>
-  </ul>
-
-  <% } %>
  
-  <form action="/register" method="POST" class="form-signin" style="width: 18rem; margin-left: 500px">
+  <div class="container" style="width: 18rem;">
+
+    <% if (typeof errors != 'undefined') { %>
+
+      <p style="color: red"> ERROR</p>
+      <ul>
+        <% for (let i = 0; i < errors.length; i++){ %>
+        <li>
+          <%=errors[i].msg%>
+        </li>
+    
+        <% } %>
+      </ul>
+    
+      <% } %>
+  <form action="/register" method="POST" class="form-signin" >
     <a href="/">
       <h1>App Side</h1>
     </a>
@@ -67,10 +44,10 @@
     <button class="mt-4 btn btn-lg btn-primary btn-block" type="submit">Register</button>
   </form>
 
+</div>
 
 
 
-  
 
 
 
@@ -78,11 +55,11 @@
   <%- include('partials/footer') %>
 
 
-  
 
-    <!--Scripts-->
-    <%- include('partials/scripts') %>
-    <!--Fin Scripts-->
+
+  <!--Scripts-->
+  <%- include('partials/scripts') %>
+  <!--Fin Scripts-->
 </body>
 
 </html>
