@@ -7,6 +7,9 @@ let loginController = {
         res.render('login', {title:'login'})
     },
     enter: function(req,res){
+        if(req.session.email == undefined){
+            req.session.email = req.body.email
+        }
         let errors = validationResult(req)
         if (errors.isEmpty()){
 
@@ -29,7 +32,7 @@ let loginController = {
                     }
                     let perfil={
                         id: resultado.dataValues.id,
-                        email: resultado.dataValues.email ,
+                        email: req.session.email ,
                         password:resultado.dataValues.password ,
                         admin:resultado.dataValues.admin,
                         rol: profile ,
@@ -53,7 +56,7 @@ let loginController = {
             return res.render('login', {errors:errors.errors})
         }
         if(req.body.remember != undefined){
-            res.cookie('remember', req.session.userLog, {
+            res.cookie('remember', req.session.email, {
                 maxAge: 600000
             })
             console.log(res.cookie);
@@ -62,8 +65,8 @@ let loginController = {
    
 
     check: function (req, res){
-        if (req.session.userLog) {
-        res.send(req.session.userLog)
+        if (req.session.email) {
+        res.send(req.session.email)
     }else{
         res.send('no login')
     }

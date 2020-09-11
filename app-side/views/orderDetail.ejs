@@ -1,42 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Head -->
-  <%- include('partials/head'); %>
-  <link rel="stylesheet" href="/stylesheets/index.css" class="css" />
+<!-- Head -->
+<%- include('partials/head'); %>
+<link rel="stylesheet" href="/stylesheets/index.css" class="css" />
 
 </head>
-  <!-- Fin Head -->
+<!-- Fin Head -->
 
-  <body>
+<body>
 
 
-    <%- include('partials/navbar') %> 
+  <%- include('partials/navbar') %>
 
-    <h1>Detail</h1>
+  <h1>Detail</h1>
 
-    <div class="container card mb-3 shadow-lg" style="width: 50rem;">
-      <img src="/images/<%= order.img %> " class="card-img-top mt-3">
-      <div class="card-body">
-        <h5 class="card-title"><%= order.name %></h5>
-        <p class="card-text"><small class="text-muted">$<%= order.price %> </small></p>
-     
-     
+  <div class="container card mb-3 shadow-lg" style="width: 50rem;">
+    <img src="/images/<%= order.img %> " class="card-img-top mt-3">
+    <div class="card-body">
+      <h5 class="card-title"><%= order.name %></h5>
+      <p class="card-text"><small class="text-muted">$<%= order.price %> </small></p>
 
-        <form action="/comments/<%= order.id %>" method="POST">
-          <button type="submit">Update</button>
-        </form>
-       
-     
+
+
+      <div>
+
+
+        <form action="/orders/detail/<%= order.id %>?_method=PUT" method="POST">
+          <div>
+            <p>Comment:</p>
+
+          </div>
+
+
+          <div class="btn-group">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Add or edit comment
+            </button>
+
+            <div class="dropdown-menu">
+              <label for="comment">Comment Here</label>
+              <textarea class="form-control" id="comment" name="comment" rows="3"><%= order.comment %> </textarea>
+
+            </div>
+           
+          </div>
+
+
+          <div>
+            <%= order.comment %>
+          </div>
+
+
       </div>
+
+
+      <div class="my-5">
+
+        <div>
+          <p>Rating:</p>
+
+        </div>
+
+
+        <div class="btn-group">
+
+          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Add or edit rating
+          </button>
+
+          <div>
+
+            <select class="dropdown-menu mr-sm-2" name="rating">
+              <option >1</option>
+              <option >2</option>
+              <option >3</option>
+              <option >4</option>
+              <option >5</option>
+            </select>
+          </div>
+          
+        </div>
+
+
+
+        <div>
+          <%= order.rating %>
+        </div>
+
+        <button type="submit" class="btn btn-success my-5">Ok</button>
+        </form>
+      </div>
+
     </div>
-    
+  </div>
 
-    
 
-    
 
-    <!--Scripts-->
-    <%- include('partials/scripts') %>
-    <!--Fin Scripts-->
-  </body>
+
+  <!--Scripts-->
+  <%- include('partials/scripts') %>
+  <!--Fin Scripts-->
+</body>
+
 </html>

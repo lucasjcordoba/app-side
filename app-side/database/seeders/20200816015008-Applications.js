@@ -3,13 +3,12 @@ let faker = require('faker');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-
     const categories = await queryInterface.sequelize.query('SELECT id FROM Categories;', { type: Sequelize.QueryTypes.SELECT });
     const users = await queryInterface.sequelize.query('SELECT id FROM Users;', { type: Sequelize.QueryTypes.SELECT });
 
     var applications = [];
 
-    for(let i = 0; i < 1; i++){
+    for(let i = 0; i < 6; i++){
       applications.push({
         name: faker.company.companyName(),
         description: faker.lorem.words(30),

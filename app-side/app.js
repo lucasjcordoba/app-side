@@ -11,7 +11,6 @@ var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
 var ordersRouter = require('./routes/orders');
 var appsRouter = require('./routes/apps')
-var commentsRouter = require('./routes/comments')
 var methodOverride = require('method-override')
 
 var app = express();
@@ -39,7 +38,6 @@ app.use('/register', registerRouter);
 app.use('/orders', ordersRouter);
 app.use('/apps', appsRouter);
 app.use('/users', usersRouter);
-app.use('/comments', commentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

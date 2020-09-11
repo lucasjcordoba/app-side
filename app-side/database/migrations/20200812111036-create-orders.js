@@ -18,6 +18,14 @@ module.exports = {
           key: 'id'
         }
       },
+      comment:{
+        type: Sequelize.STRING(1000),
+        allowNull: true
+      },
+      rating: {
+        type: Sequelize.INTEGER(5,2),
+        allowNull: true
+      },
       application_id: {
         type: Sequelize.INTEGER,
         allowNull: true,

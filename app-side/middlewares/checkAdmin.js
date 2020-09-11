@@ -19,7 +19,7 @@ console.log(resultado.dataValues)
                     next()
                 }
                 else{
-                    res.redirect('/')
+                    res.redirect('notAdmin')
                 }
             })
         }

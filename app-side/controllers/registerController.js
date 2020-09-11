@@ -14,8 +14,9 @@ let registerController = {
         
         if (errors.isEmpty()) {
             db.User.create({
-            email: req.body.email,
+            email: req.session.email,
             password: bcrypt.hashSync(req.body.password, 10),
+            admin: false
             })
             .then(function(e){
                 let productJSON = {
@@ -31,7 +32,7 @@ let registerController = {
             
             
             
-            res.render('register')
+            res.redirect('/')
             
     } 
     else {

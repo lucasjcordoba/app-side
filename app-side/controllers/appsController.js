@@ -45,13 +45,14 @@ let appsController = {
             )
     },
     create: function (req, res, next) {
+        console.log(req.session.userLog);
         db.Application.create({
             name: req.body.name,
             image_url: 'not-image.jpeg',
             description: req.body.description,
             price: req.body.price,
             category_id: req.body.category_id,
-            user_id: req.body.user_id
+            user_id: req.session.userLog.id
         })
             .then(function (created) {
                 let createdJSON = {
@@ -130,7 +131,9 @@ let appsController = {
      },
      editImage: function(req, res){
         db.Application.findOne({
-            where:{id:req.params.id}
+            where:{id:req.params.id}, 
+                include: [{ association: 'category' }, { association: 'user' }]
+            
         }
         )
         .then(function (application) {

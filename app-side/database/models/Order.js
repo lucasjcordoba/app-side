@@ -15,6 +15,14 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER(10),
       allowNull: false
     },
+    comment:{
+      type: Sequelize.STRING(1000),
+      allowNull: true
+    },
+    rating: {
+      type: Sequelize.INTEGER(5,2),
+      allowNull: true
+    },
     price: {
       type: Sequelize.DECIMAL(10, 2),
       allowNull: false
@@ -34,10 +42,6 @@ module.exports = (sequelize, Sequelize) => {
       as: 'applications',
       foreignKey: 'application_id'
     });
-    Order.hasMany(models.Comment, {
-      as: 'comments',
-      foreignKey: 'order_id'
-    })
 
   }
 

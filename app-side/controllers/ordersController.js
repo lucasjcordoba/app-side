@@ -9,7 +9,7 @@ let ordersController = {
                console.log(req.params.id)
                db.Order.create({
                    application_id: req.params.id,
-                   user_id:req.session.email,
+                   user_id:req.session.userLog.id,
                    price:app.dataValues.price
                })
                .then((created) =>{
@@ -48,6 +48,46 @@ let ordersController = {
                 })
     
         },
+
+        editFormComment: function (req, res){
+        
+            db.Order.findOne({
+                where: {id:req.params.id}
+            })
+            
+                .then(function(){
+                
+                   res.render('/orders/detail/'+ req.params.id)
+                }
+                )
+            
+            .catch(function(){
+                res.send('Error')
+            })
+        },
+        editComment : function(req, res){
+    
+            db.Order.update({
+                comment: req.body.comment,
+                rating: req.body.rating
+            },
+            {
+                where: {id:req.params.id}
+            })
+            .then ((end)=>{
+     
+             let editedJSON = {
+                 meta: {
+                     status: 201
+                 },
+             }
+             res.redirect('/orders/detail/'+ req.params.id)
+         })
+         .catch(function () {
+             res.send('Error')
+     
+         })
+         },
     }
 
    

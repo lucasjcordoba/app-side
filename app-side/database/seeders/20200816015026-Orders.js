@@ -8,11 +8,13 @@ module.exports = {
     const users = await queryInterface.sequelize.query('SELECT id FROM Users;', { type: Sequelize.QueryTypes.SELECT });
     var orders = [];
 
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < 3; i++){
       orders.push({
         user_id: faker.random.arrayElement(users).id,
         application_id: faker.random.arrayElement(applications).id,
         price: faker.random.number(100000),
+        rating:faker.random.number(10),
+        comment: faker.lorem.words(50),
         createdAt: faker.date.past(),
         updatedAt: faker.date.recent()
       });

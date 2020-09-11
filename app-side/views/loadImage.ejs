@@ -2,7 +2,7 @@
 <html lang="en">
 <!-- Head -->
 <%- include('partials/head') %>
-<link rel="stylesheet" href="/stylesheets/index.css" class="css" />
+<link rel="stylesheet" href="/stylesheets/loadImage.css" class="css" />
 
 </head>
 <!-- Fin Head -->
@@ -10,18 +10,43 @@
 <body>
 
   <%- include('partials/navbar') %>
-  <h1>Load Image</h1>
+  <h1 class="text-center">Load Image</h1>
 
 
-  <form action="/apps/loadImage/<%= application.id %> " method="POST" enctype="multipart/form-data">
-    <div class="form-group">
-      <label for="exampleFormControlFile1"></label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image_url">
+
+
+
+  <div class="container card shadow-lg" style="width: 30rem;">
+
+
+    <div class="card container my-3" style="width: 28rem;">
+      <ul class="list-group list-group-flush">
+        <p>Name</p>
+        <li class="list-group-item"><%= application.name %></li>
+        <p>Price</p>
+        <li class="list-group-item"><%= application.price %></li>
+        <p>Description</p>
+        <li class="list-group-item"><%= application.description %> </li>
+        <p>Category</p>
+        <li class="list-group-item"><%= application.category.name %> </li>
+        <li class="text-center list-group-item"><img class="mx-auto container-fluid" style="width: 25rem;" src="/images/<%= application.image_url %> " alt=""></li>
+        <li class="list-group-item">
+
+
+
+          <form action="/apps/loadImage/<%= application.id %> " method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="exampleFormControlFile1"></label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image_url">
+            </div>
+            <button class="btn btn-success" type="submit "> Load </button>
+          </form>
+        </li>
+      </ul>
     </div>
-    <button type="submit"> Load </button>
-  </form>
 
 
+  </div>
 
 
   <!--Scripts-->

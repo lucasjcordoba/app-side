@@ -10,42 +10,51 @@
   <body>
 
     <%- include('partials/navbar') %> 
-    <h1>New App</h1>
-    <form action="/apps/create" method="POST">
-    <div>
-      <label for="name">Name</label>
-      <input type="text" name="name">
-    </div>
-    <div>
-      <label for="description">Description</label>
-      <input type="text" name="description">
-    </div>
-    <div>
-      <label for="price">Price</label>
-      <input type="number" name="price">
-    </div>
-    <div>
-      <label for="category">Category</label>
-      <select name="category_id">
-        <% for (let i = 0; i < categories.length; i++){ %>
-        <option value="<%=categories[i].id%>" >
-          <%=categories[i].name%>
-        </option>
-        <% } %>
-      
-      </select>
-    </div>
-   
-    <div>
-  
-      <br>
+    
+    
 
-      <button type="submit">
-        Create App
-      </button>
-    
-  </form>
-    
+  <div class="text-center">
+
+
+
+    <form action="/apps/create" method="POST" class="form-signin container card shadow-lg my-4 py-3" style="width: 30rem">
+      
+        <h1>New App</h1>
+      
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name">
+        </div>
+
+        <div class="form-group">
+          <label for="name">Price</label>
+          <input type="number" class="form-control" name="price">
+        </div>
+
+        <div class="form-group" >
+          <label for="category">Category</label>
+          <select multiple class="form-control" name="category_id" id="exampleFormControlSelect2">
+            <% for (let i = 0; i < categories.length; i++){ %>
+            <option value="<%=categories[i].id%>">
+              <%=categories[i].name%>
+            </option>
+            <% } %>
+          </select>
+        </div>
+
+
+     
+        <div class="form-group" >
+          <label for="description">Description</label>
+          <textarea class="form-control" name="description" rows="3"></textarea>
+
+
+        </div>
+      <button class="mt-4 btn btn-lg btn-success btn-block" type="submit">Load Image >></button>
+    </form>
+
+  </div>
+
 
 
 
